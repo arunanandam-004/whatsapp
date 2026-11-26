@@ -1,4 +1,4 @@
-name: vabsgen
+name: vabs
 
 services:
   app:

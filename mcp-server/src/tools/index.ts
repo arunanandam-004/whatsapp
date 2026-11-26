@@ -5,13 +5,13 @@
 // ============================================================
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { vabsgenClient } from '../client.js';
+import type { vabsClient } from '../client.js';
 import type { Config } from '../config.js';
 import { registerReadTools } from './read.js';
 import { registerWriteTools } from './write.js';
 import { registerBroadcastTools } from './broadcast.js';
 
-export function registerTools(server: McpServer, client: vabsgenClient, config: Config): string[] {
+export function registerTools(server: McpServer, client: vabsClient, config: Config): string[] {
   const enabled: string[] = ['read'];
   registerReadTools(server, client);
 

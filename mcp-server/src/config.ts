@@ -1,7 +1,7 @@
 // ============================================================
 // Configuration — read once at startup from the environment.
 //
-// The server needs the URL of a vabsgen instance and an API key.
+// The server needs the URL of a vabs instance and an API key.
 // Two opt-in flags decide whether write / broadcast tools are
 // registered at all: by default the server is READ-ONLY, so an
 // MCP client can never see a tool that mutates data or sends a
@@ -24,17 +24,17 @@ function truthy(value: string | undefined): boolean {
 }
 
 export function loadConfig(): Config {
-  const baseUrlRaw = process.env.vabsgen_BASE_URL?.trim();
-  const apiKey = process.env.vabsgen_API_KEY?.trim();
+  const baseUrlRaw = process.env.vabs_BASE_URL?.trim();
+  const apiKey = process.env.vabs_API_KEY?.trim();
 
   const missing: string[] = [];
-  if (!baseUrlRaw) missing.push('vabsgen_BASE_URL');
-  if (!apiKey) missing.push('vabsgen_API_KEY');
+  if (!baseUrlRaw) missing.push('vabs_BASE_URL');
+  if (!apiKey) missing.push('vabs_API_KEY');
   if (missing.length > 0) {
     throw new Error(
       `Missing required environment variable(s): ${missing.join(', ')}. ` +
-      `Set vabsgen_BASE_URL to your instance URL (e.g. https://crm.example.com) ` +
-      `and vabsgen_API_KEY to a key from Settings → API keys.`,
+      `Set vabs_BASE_URL to your instance URL (e.g. https://crm.example.com) ` +
+      `and vabs_API_KEY to a key from Settings → API keys.`,
     );
   }
 
@@ -42,16 +42,16 @@ export function loadConfig(): Config {
   const baseUrl = baseUrlRaw!.replace(/\/+$/, '');
   if (!/^https?:\/\//.test(baseUrl)) {
     throw new Error(
-      `vabsgen_BASE_URL must start with http:// or https:// (got "${baseUrl}").`,
+      `vabs_BASE_URL must start with http:// or https:// (got "${baseUrl}").`,
     );
   }
 
-  const enableWrites = truthy(process.env.vabsgen_ENABLE_WRITES);
-  const enableBroadcasts = truthy(process.env.vabsgen_ENABLE_BROADCASTS);
+  const enableWrites = truthy(process.env.vabs_ENABLE_WRITES);
+  const enableBroadcasts = truthy(process.env.vabs_ENABLE_BROADCASTS);
 
   if (enableBroadcasts && !enableWrites) {
     throw new Error(
-      'vabsgen_ENABLE_BROADCASTS requires vabsgen_ENABLE_WRITES to also be set.',
+      'vabs_ENABLE_BROADCASTS requires vabs_ENABLE_WRITES to also be set.',
     );
   }
 

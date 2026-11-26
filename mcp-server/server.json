@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.ArnasDon/vabsgen-mcp",
-  "description": "Drive a self-hosted vabsgen WhatsApp CRM from Claude, Cursor and other MCP clients.",
+  "name": "io.github.ArnasDon/vabs-mcp",
+  "description": "Drive a self-hosted vabs WhatsApp CRM from Claude, Cursor and other MCP clients.",
   "repository": {
-    "url": "https://github.com/ArnasDon/vabsgen",
+    "url": "https://github.com/ArnasDon/vabs",
     "source": "github",
     "subfolder": "mcp-server"
   },
@@ -11,36 +11,36 @@
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "vabsgen-mcp",
+      "identifier": "vabs-mcp",
       "version": "0.1.1",
       "transport": {
         "type": "stdio"
       },
       "environmentVariables": [
         {
-          "name": "vabsgen_BASE_URL",
-          "description": "Base URL of your vabsgen instance, e.g. https://crm.example.com",
+          "name": "vabs_BASE_URL",
+          "description": "Base URL of your vabs instance, e.g. https://crm.example.com",
           "isRequired": true,
           "isSecret": false,
           "format": "string"
         },
         {
-          "name": "vabsgen_API_KEY",
-          "description": "vabsgen API key (Settings → API keys). Its scopes decide what is allowed.",
+          "name": "vabs_API_KEY",
+          "description": "vabs API key (Settings → API keys). Its scopes decide what is allowed.",
           "isRequired": true,
           "isSecret": true,
           "format": "string"
         },
         {
-          "name": "vabsgen_ENABLE_WRITES",
+          "name": "vabs_ENABLE_WRITES",
           "description": "Set to true to expose contact create/update and message sending. Read-only when unset.",
           "isRequired": false,
           "isSecret": false,
           "format": "string"
         },
         {
-          "name": "vabsgen_ENABLE_BROADCASTS",
-          "description": "Set to true to expose the mass-broadcast tool. Requires vabsgen_ENABLE_WRITES.",
+          "name": "vabs_ENABLE_BROADCASTS",
+          "description": "Set to true to expose the mass-broadcast tool. Requires vabs_ENABLE_WRITES.",
           "isRequired": false,
           "isSecret": false,
           "format": "string"

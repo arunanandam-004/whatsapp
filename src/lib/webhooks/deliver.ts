@@ -115,9 +115,9 @@ async function deliverOne(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-vabsgen-Event': event,
-        'X-vabsgen-Webhook-Id': row.id,
-        'X-vabsgen-Signature': buildSignatureHeader(payload, secret, tsSeconds),
+        'X-vabs-Event': event,
+        'X-vabs-Webhook-Id': row.id,
+        'X-vabs-Signature': buildSignatureHeader(payload, secret, tsSeconds),
       },
       body: payload,
       // Do NOT follow redirects — a public URL could 3xx-bounce to an

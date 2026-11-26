@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // ============================================================
-// vabsgen MCP server — entry point.
+// vabs MCP server — entry point.
 //
-// A stdio Model Context Protocol server that exposes the vabsgen
+// A stdio Model Context Protocol server that exposes the vabs
 // public API (`/api/v1`) as MCP tools, so an MCP client (Claude
 // Desktop, Cursor, etc.) can drive a self-hosted WhatsApp CRM in
 // natural language.
@@ -15,7 +15,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { loadConfig } from './config.js';
-import { vabsgenClient } from './client.js';
+import { vabsClient } from './client.js';
 import { registerTools } from './tools/index.js';
 
 // package.json version, kept in sync manually with the manifest.
@@ -23,9 +23,9 @@ const VERSION = '0.1.1';
 
 async function main(): Promise<void> {
   const config = loadConfig();
-  const client = new vabsgenClient(config);
+  const client = new vabsClient(config);
 
-  const server = new McpServer({ name: 'vabsgen-mcp', version: VERSION });
+  const server = new McpServer({ name: 'vabs-mcp', version: VERSION });
   const groups = registerTools(server, client, config);
 
   const transport = new StdioServerTransport();
@@ -33,13 +33,13 @@ async function main(): Promise<void> {
 
   // Stderr only — stdout is reserved for the MCP protocol.
   console.error(
-    `vabsgen MCP server v${VERSION} ready — instance ${config.baseUrl}, ` +
+    `vabs MCP server v${VERSION} ready — instance ${config.baseUrl}, ` +
     `tool groups: ${groups.join(', ')}` +
-    (config.enableWrites ? '' : ' (read-only; set vabsgen_ENABLE_WRITES to allow changes)'),
+    (config.enableWrites ? '' : ' (read-only; set vabs_ENABLE_WRITES to allow changes)'),
   );
 }
 
 main().catch((err) => {
-  console.error(`Failed to start vabsgen MCP server: ${(err as Error).message}`);
+  console.error(`Failed to start vabs MCP server: ${(err as Error).message}`);
   process.exit(1);
 });

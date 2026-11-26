@@ -190,13 +190,13 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
           <Link href="/dashboard" className="flex items-center gap-2 overflow-hidden py-1">
             <img
               src="/logo.png"
-              alt="vabsgen"
-              className="brand-logo-white h-7 max-w-[145px] object-contain object-left"
+              alt="vabs"
+              className="brand-logo-white h-[34px] max-w-[160px] object-contain object-left"
             />
             <img
               src="/logo-black.png"
-              alt="vabsgen"
-              className="brand-logo-black h-7 max-w-[145px] object-contain object-left"
+              alt="vabs"
+              className="brand-logo-black h-[34px] max-w-[160px] object-contain object-left"
             />
           </Link>
           <button

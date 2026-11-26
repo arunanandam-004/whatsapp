@@ -9,18 +9,18 @@
 
 import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { vabsgenClient } from '../client.js';
+import type { vabsClient } from '../client.js';
 import { handle, jsonResult } from './shared.js';
 
 const READ_ONLY = { readOnlyHint: true, openWorldHint: true } as const;
 
-export function registerReadTools(server: McpServer, client: vabsgenClient): void {
+export function registerReadTools(server: McpServer, client: vabsClient): void {
   server.registerTool(
     'whoami',
     {
       title: 'Who am I',
       description:
-        'Verify the API key and show which vabsgen account it is bound to and what scopes it carries. Call this first to discover what actions are possible.',
+        'Verify the API key and show which vabs account it is bound to and what scopes it carries. Call this first to discover what actions are possible.',
       inputSchema: {},
       annotations: { ...READ_ONLY, title: 'Who am I' },
     },

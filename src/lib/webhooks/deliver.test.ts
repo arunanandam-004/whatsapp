@@ -80,8 +80,8 @@ describe('dispatchWebhookEvent', () => {
     const [url, opts] = fetchMock.mock.calls[0];
     expect(url).toBe('https://a.test/hook');
     expect(opts.redirect).toBe('manual');
-    expect(opts.headers['X-vabsgen-Event']).toBe('message.received');
-    expect(opts.headers['X-vabsgen-Signature']).toMatch(/^t=\d+,v1=[0-9a-f]{64}$/);
+    expect(opts.headers['X-vabs-Event']).toBe('message.received');
+    expect(opts.headers['X-vabs-Signature']).toMatch(/^t=\d+,v1=[0-9a-f]{64}$/);
     // Payload carries a dedupe id.
     expect(JSON.parse(opts.body).id).toMatch(/[0-9a-f-]{36}/);
     expect(calls.updates[0]).toMatchObject({ id: 'a', payload: { failure_count: 0 } });

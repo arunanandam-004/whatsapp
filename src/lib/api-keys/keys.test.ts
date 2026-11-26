@@ -35,11 +35,11 @@ describe('generateApiKey', () => {
 
 describe('hashApiKey', () => {
   it('is deterministic', () => {
-    expect(hashApiKey('vabsgen_live_abc')).toBe(hashApiKey('vabsgen_live_abc'));
+    expect(hashApiKey('vabs_live_abc')).toBe(hashApiKey('vabs_live_abc'));
   });
 
   it('differs for different inputs', () => {
-    expect(hashApiKey('vabsgen_live_abc')).not.toBe(hashApiKey('vabsgen_live_abd'));
+    expect(hashApiKey('vabs_live_abc')).not.toBe(hashApiKey('vabs_live_abd'));
   });
 });
 
@@ -57,7 +57,7 @@ describe('looksLikeApiKey', () => {
 
 describe('timingSafeHexEqual', () => {
   it('is true for identical digests', () => {
-    const h = hashApiKey('vabsgen_live_xyz');
+    const h = hashApiKey('vabs_live_xyz');
     expect(timingSafeHexEqual(h, h)).toBe(true);
   });
 

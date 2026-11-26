@@ -1,7 +1,7 @@
 -- ============================================================
 -- 017_account_sharing.sql — Multi-user accounts (foundation)
 --
--- Turns vabsgen from single-tenant-per-user into multi-tenant-per-
+-- Turns vabs from single-tenant-per-user into multi-tenant-per-
 -- account. Every existing user becomes the sole `owner` of a
 -- freshly-created account; every existing row is backfilled with
 -- that account's id. Post-apply behaviour is identical to before

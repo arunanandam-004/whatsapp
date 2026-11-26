@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 // ---------------------------------------------------------------------------
-// Regression coverage for GHSA-m4fx-g6pr-hrw8 (vabsgen-002 / vabsgen-003), the
+// Regression coverage for GHSA-m4fx-g6pr-hrw8 (vabs-002 / vabs-003), the
 // last surface named by GHSA-hxp9-37p2-rvxv.
 //
 // Both handlers reach Meta before they write anything locally, so the

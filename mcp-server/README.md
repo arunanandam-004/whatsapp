@@ -1,7 +1,7 @@
-# vabsgen MCP server
+# vabs MCP server
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server for
-**[vabsgen](https://github.com/ArnasDon/vabsgen)** — the self-hostable
+**[vabs](https://github.com/ArnasDon/vabs)** — the self-hostable
 WhatsApp CRM. It lets MCP clients (Claude Desktop, Claude Code, Cursor,
 and others) drive your CRM in natural language:
 
@@ -9,13 +9,13 @@ and others) drive your CRM in natural language:
 > "Find the contact for +1 415 555 0123 and show the last few messages."
 > "Draft and send an order-update template to Jane."
 
-It's a thin wrapper over vabsgen's public [`/api/v1`](../docs/public-api.md)
+It's a thin wrapper over vabs's public [`/api/v1`](../docs/public-api.md)
 REST API. All auth, scoping, and rate limiting are enforced by your
-vabsgen instance — this server just exposes the API as MCP tools.
+vabs instance — this server just exposes the API as MCP tools.
 
 ## Prerequisites
 
-1. A running vabsgen instance (your own self-hosted deploy).
+1. A running vabs instance (your own self-hosted deploy).
 2. An API key: in the dashboard go to **Settings → API keys → New API
    key** and grant only the scopes you need. The key is shown once.
 
@@ -26,10 +26,10 @@ write guards:
 
 | Variable                  | Required | Purpose                                                        |
 | ------------------------- | -------- | -------------------------------------------------------------- |
-| `vabsgen_BASE_URL`          | yes      | Your instance URL, e.g. `https://crm.example.com`              |
-| `vabsgen_API_KEY`           | yes      | An API key from the dashboard                                  |
-| `vabsgen_ENABLE_WRITES`     | no       | `true` to expose contact writes + message sending             |
-| `vabsgen_ENABLE_BROADCASTS` | no       | `true` to expose mass broadcasts (needs `vabsgen_ENABLE_WRITES`) |
+| `vabs_BASE_URL`          | yes      | Your instance URL, e.g. `https://crm.example.com`              |
+| `vabs_API_KEY`           | yes      | An API key from the dashboard                                  |
+| `vabs_ENABLE_WRITES`     | no       | `true` to expose contact writes + message sending             |
+| `vabs_ENABLE_BROADCASTS` | no       | `true` to expose mass broadcasts (needs `vabs_ENABLE_WRITES`) |
 
 ### Claude Desktop / Claude Code / Cursor
 
@@ -39,12 +39,12 @@ Add to your MCP client config (e.g. `claude_desktop_config.json`, or
 ```jsonc
 {
   "mcpServers": {
-    "vabsgen": {
+    "vabs": {
       "command": "npx",
-      "args": ["-y", "vabsgen-mcp"],
+      "args": ["-y", "vabs-mcp"],
       "env": {
-        "vabsgen_BASE_URL": "https://crm.example.com",
-        "vabsgen_API_KEY": "vabsgen_live_xxxxxxxxxxxxxxxxxxxxxxxx"
+        "vabs_BASE_URL": "https://crm.example.com",
+        "vabs_API_KEY": "vabs_live_xxxxxxxxxxxxxxxxxxxxxxxx"
       }
     }
   }
@@ -56,10 +56,10 @@ assistant change data or send messages, add the write guards:
 
 ```jsonc
 "env": {
-  "vabsgen_BASE_URL": "https://crm.example.com",
-  "vabsgen_API_KEY": "vabsgen_live_xxxxxxxxxxxxxxxxxxxxxxxx",
-  "vabsgen_ENABLE_WRITES": "true",
-  "vabsgen_ENABLE_BROADCASTS": "true"
+  "vabs_BASE_URL": "https://crm.example.com",
+  "vabs_API_KEY": "vabs_live_xxxxxxxxxxxxxxxxxxxxxxxx",
+  "vabs_ENABLE_WRITES": "true",
+  "vabs_ENABLE_BROADCASTS": "true"
 }
 ```
 
@@ -89,8 +89,8 @@ the server layers three guards:
 
 1. **Read-only by default.** Write and broadcast tools are not even
    registered — the model can't see them — unless you opt in via
-   `vabsgen_ENABLE_WRITES` / `vabsgen_ENABLE_BROADCASTS`.
-2. **API-key scopes.** Whatever the guards allow, your vabsgen instance
+   `vabs_ENABLE_WRITES` / `vabs_ENABLE_BROADCASTS`.
+2. **API-key scopes.** Whatever the guards allow, your vabs instance
    still enforces the key's scopes. A call without the right scope
    returns a clean `forbidden` error. Issue a read-only key for a
    read-only assistant.
@@ -111,4 +111,4 @@ Logs go to **stderr** — stdout is reserved for the MCP protocol.
 
 ## License
 
-MIT — same as vabsgen.
+MIT — same as vabs.

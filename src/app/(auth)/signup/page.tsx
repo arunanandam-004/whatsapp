@@ -149,16 +149,16 @@ function SignupPageInner() {
                 <UsersRound className="h-6 w-6 text-foreground" />
               </div>
             ) : (
-              <div className="flex h-12 items-center justify-center">
+              <div className="flex h-14 items-center justify-center">
                 <img
                   src="/logo.png"
-                  alt="vabsgen"
-                  className="brand-logo-white h-9 w-auto object-contain"
+                  alt="vabs"
+                  className="brand-logo-white h-11 w-auto object-contain"
                 />
                 <img
                   src="/logo-black.png"
-                  alt="vabsgen"
-                  className="brand-logo-black h-9 w-auto object-contain"
+                  alt="vabs"
+                  className="brand-logo-black h-11 w-auto object-contain"
                 />
               </div>
             )}

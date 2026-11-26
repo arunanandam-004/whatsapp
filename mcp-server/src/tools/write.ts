@@ -1,5 +1,5 @@
 // ============================================================
-// Write tools — registered only when vabsgen_ENABLE_WRITES is set.
+// Write tools — registered only when vabs_ENABLE_WRITES is set.
 //
 // These change data or send a WhatsApp message. They are gated so a
 // read-only deployment never exposes them to the model at all. (The
@@ -9,7 +9,7 @@
 
 import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { vabsgenClient } from '../client.js';
+import type { vabsClient } from '../client.js';
 import { handle, jsonResult } from './shared.js';
 
 const templateSchema = z
@@ -23,7 +23,7 @@ const templateSchema = z
   })
   .describe('Template payload — required when type is "template".');
 
-export function registerWriteTools(server: McpServer, client: vabsgenClient): void {
+export function registerWriteTools(server: McpServer, client: vabsClient): void {
   server.registerTool(
     'send_message',
     {

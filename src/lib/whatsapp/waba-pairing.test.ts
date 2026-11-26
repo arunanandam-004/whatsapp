@@ -65,7 +65,7 @@ describe("describeWabaPhoneMismatch", () => {
 
 describe("appSubscriptionState", () => {
   const subs = [
-    { whatsapp_business_api_data: { id: "app-1", name: "vabsgen" } },
+    { whatsapp_business_api_data: { id: "app-1", name: "vabs" } },
     { whatsapp_business_api_data: { id: "app-2", name: "other" } },
   ];
 

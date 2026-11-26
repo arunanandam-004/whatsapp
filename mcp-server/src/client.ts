@@ -1,22 +1,22 @@
 // ============================================================
-// vabsgen public API client.
+// vabs public API client.
 //
 // A thin wrapper over the `/api/v1` REST surface. It attaches the
 // bearer key, unwraps the `{ data }` / `{ error }` envelope, and
-// turns API failures into a typed vabsgenApiError the tools can render
+// turns API failures into a typed vabsApiError the tools can render
 // cleanly. Nothing here knows about MCP — it's just the CRM API.
 // ============================================================
 
 import type { Config } from './config.js';
 
-/** A structured error from the vabsgen API envelope (`{ error: { code, message } }`). */
-export class vabsgenApiError extends Error {
+/** A structured error from the vabs API envelope (`{ error: { code, message } }`). */
+export class vabsApiError extends Error {
   readonly status: number;
   readonly code: string;
 
   constructor(status: number, code: string, message: string) {
     super(message);
-    this.name = 'vabsgenApiError';
+    this.name = 'vabsApiError';
     this.status = status;
     this.code = code;
   }
@@ -27,7 +27,7 @@ export interface Paginated<T> {
   next_cursor: string | null;
 }
 
-export class vabsgenClient {
+export class vabsClient {
   private readonly baseUrl: string;
   private readonly apiKey: string;
 
@@ -66,10 +66,10 @@ export class vabsgenClient {
         body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
       });
     } catch (err) {
-      throw new vabsgenApiError(
+      throw new vabsApiError(
         0,
         'network_error',
-        `Could not reach vabsgen at ${this.baseUrl}: ${(err as Error).message}`,
+        `Could not reach vabs at ${this.baseUrl}: ${(err as Error).message}`,
       );
     }
 
@@ -82,7 +82,7 @@ export class vabsgenClient {
       } catch {
         // Non-JSON body (e.g. an upstream proxy error page).
         if (!res.ok) {
-          throw new vabsgenApiError(res.status, 'internal', text.slice(0, 500));
+          throw new vabsApiError(res.status, 'internal', text.slice(0, 500));
         }
       }
     }
@@ -95,7 +95,7 @@ export class vabsgenClient {
         const retryAfter = res.headers.get('Retry-After');
         if (retryAfter) message += ` (retry after ${retryAfter}s)`;
       }
-      throw new vabsgenApiError(res.status, code, message);
+      throw new vabsApiError(res.status, code, message);
     }
 
     const envelope = payload as { data: T; meta?: { next_cursor: string | null } };

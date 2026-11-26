@@ -1,24 +1,24 @@
-# vabsgen — CRM Template for WhatsApp
+# vabs — CRM Template for WhatsApp
 
 > Self-hostable CRM template for WhatsApp® — shared inbox, contacts,
 > sales pipelines, broadcasts, and no-code automations. Fork it, brand
 > it, host it.
 
 <p align="center">
-  <a href="https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsgenHOST">
+  <a href="https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsHOST">
     <img src="./.github/assets/hostinger-deploy.png" alt="Ship your Node.js app in one click — Deploy to Hostinger" width="900">
   </a>
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-violet.svg)](./LICENSE)
-[![CI](https://github.com/ArnasDon/vabsgen/actions/workflows/ci.yml/badge.svg)](https://github.com/ArnasDon/vabsgen/actions/workflows/ci.yml)
+[![CI](https://github.com/ArnasDon/vabs/actions/workflows/ci.yml/badge.svg)](https://github.com/ArnasDon/vabs/actions/workflows/ci.yml)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)](https://nextjs.org)
 [![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3ecf8e?logo=supabase)](https://supabase.com)
-[![Stars](https://img.shields.io/github/stars/ArnasDon/vabsgen?style=social)](https://github.com/ArnasDon/vabsgen/stargazers)
+[![Stars](https://img.shields.io/github/stars/ArnasDon/vabs?style=social)](https://github.com/ArnasDon/vabs/stargazers)
 
 The marketing site and self-host docs live in a separate repo:
-[ArnasDon/vabsgen-site](https://github.com/ArnasDon/vabsgen-site)
-([vabsgen.tech](https://vabsgen.tech)). This repo is the product —
+[ArnasDon/vabs-site](https://github.com/ArnasDon/vabs-site)
+([vabs.tech](https://vabs.tech)). This repo is the product —
 clone or fork it to run your own CRM.
 
 ## What you get out of the box
@@ -65,7 +65,7 @@ This is a **template**, not a product. Forking means you get:
   modules you don't, redesign anything. The stack is boring on
   purpose (Next.js + Supabase + Tailwind) so the learning curve is
   short.
-- **Zero ops to start** — [Hostinger](https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsgenHOST)
+- **Zero ops to start** — [Hostinger](https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsHOST)
   Managed Node.js deploys a fork in a few clicks. No Docker, no
   Kubernetes, no infra team needed.
   ([See below ↓](#-deploy-on-hostinger-recommended))
@@ -79,9 +79,9 @@ in an afternoon and make yours.
 ## Quick start
 
 ```bash
-# Fork on GitHub first: https://github.com/ArnasDon/vabsgen → Fork
-git clone https://github.com/<your-username>/vabsgen.git
-cd vabsgen
+# Fork on GitHub first: https://github.com/ArnasDon/vabs → Fork
+git clone https://github.com/<your-username>/vabs.git
+cd vabs
 npm install
 cp .env.local.example .env.local   # fill in Supabase + Meta creds
 npm run dev
@@ -100,17 +100,17 @@ Dockerfile + Docker Compose setup.
 ## 🚀 Deploy on Hostinger (recommended)
 
 <p align="center">
-  <a href="https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsgenHOST">
+  <a href="https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsHOST">
     <img src="./.github/assets/hostinger-deploy.png" alt="Ship your Node.js app in one click — Deploy to Hostinger" width="1000">
   </a>
 </p>
 <p align="center">
-  <a href="https://vabsgen.tech/docs/deployment-hostinger">
-    <img src="https://img.shields.io/badge/Step--by--step_guide-vabsgen.tech%2Fdocs-111?style=for-the-badge" alt="Step-by-step guide" height="44">
+  <a href="https://vabs.tech/docs/deployment-hostinger">
+    <img src="https://img.shields.io/badge/Step--by--step_guide-vabs.tech%2Fdocs-111?style=for-the-badge" alt="Step-by-step guide" height="44">
   </a>
 </p>
 
-**vabsgen is built to run on [Hostinger](https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsgenHOST).**
+**vabs is built to run on [Hostinger](https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsHOST).**
 It's the path we test, document, and recommend — and the fastest way
 to get a production-grade CRM live without owning a VPS or a
 Kubernetes cluster.
@@ -120,7 +120,7 @@ Kubernetes cluster.
 | | |
 |---|---|
 | **One-click Git deploy** | Connect your fork, push to `main`, Hostinger builds and ships it. No SSH, no Docker, no CI to wire up — this repo's own `main` deploys this way. |
-| **Managed Node.js** | Next.js 16 (App Router, server actions, ISR) runs out of the box on [Premium, Business, and Cloud](https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsgenHOST) shared plans. You don't manage Node versions, processes, or reverse proxies. |
+| **Managed Node.js** | Next.js 16 (App Router, server actions, ISR) runs out of the box on [Premium, Business, and Cloud](https://www.hostinger.com/web-apps-hosting?REFERRALCODE=vabsHOST) shared plans. You don't manage Node versions, processes, or reverse proxies. |
 | **Free SSL + free domain** | Automatic Let's Encrypt on your custom domain (or a free one included with annual plans). HTTPS is on by default — required for the WhatsApp Business webhook. |
 | **Global CDN + LiteSpeed** | Static assets cached at the edge, dynamic routes served from LiteSpeed. Snappy dashboards out of the box, no Cloudflare setup required. |
 | **Env vars + logs in hPanel** | Set `SUPABASE_*`, `WHATSAPP_*`, and `ENCRYPTION_KEY` from the panel — no `.env` on the server. Live application logs in the same UI. |
@@ -137,9 +137,9 @@ Kubernetes cluster.
 4. Push to `main`. Hostinger builds and serves it. Done.
 
 Full walkthrough with screenshots:
-**[vabsgen.tech/docs/deployment-hostinger](https://vabsgen.tech/docs/deployment-hostinger)**.
+**[vabs.tech/docs/deployment-hostinger](https://vabs.tech/docs/deployment-hostinger)**.
 
-> _Note: vabsgen is MIT-licensed and runs anywhere Node.js does
+> _Note: vabs is MIT-licensed and runs anywhere Node.js does
 > (Vercel, Railway, your own VPS). Hostinger is recommended, not
 > required._
 
@@ -147,17 +147,17 @@ Full walkthrough with screenshots:
 
 Full self-host documentation — Supabase migrations, WhatsApp Business
 API config, and production deploy — lives at
-**[vabsgen.tech/docs](https://vabsgen.tech/docs)**
-(source: [ArnasDon/vabsgen-site](https://github.com/ArnasDon/vabsgen-site)).
+**[vabs.tech/docs](https://vabs.tech/docs)**
+(source: [ArnasDon/vabs-site](https://github.com/ArnasDon/vabs-site)).
 
 Key pages:
-- [Getting started](https://vabsgen.tech/docs/getting-started)
-- [Supabase setup](https://vabsgen.tech/docs/supabase-setup)
-- [WhatsApp setup](https://vabsgen.tech/docs/whatsapp-setup)
-- [Environment variables](https://vabsgen.tech/docs/environment-variables)
-- [Deploy on Hostinger](https://vabsgen.tech/docs/deployment-hostinger)
-- [Architecture](https://vabsgen.tech/docs/architecture)
-- [Troubleshooting](https://vabsgen.tech/docs/troubleshooting)
+- [Getting started](https://vabs.tech/docs/getting-started)
+- [Supabase setup](https://vabs.tech/docs/supabase-setup)
+- [WhatsApp setup](https://vabs.tech/docs/whatsapp-setup)
+- [Environment variables](https://vabs.tech/docs/environment-variables)
+- [Deploy on Hostinger](https://vabs.tech/docs/deployment-hostinger)
+- [Architecture](https://vabs.tech/docs/architecture)
+- [Troubleshooting](https://vabs.tech/docs/troubleshooting)
 - [WhatsApp connection troubleshooting](./docs/whatsapp-connection-troubleshooting.md)
   — what each "Save Configuration" error means, and the Meta code /
   trace id to quote to Meta support

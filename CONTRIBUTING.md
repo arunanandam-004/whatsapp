@@ -16,10 +16,10 @@ opinions become yours.
 ## Fork and run
 
 ```bash
-# 1. Fork on GitHub: https://github.com/ArnasDon/vabsgen → Fork
+# 1. Fork on GitHub: https://github.com/ArnasDon/vabs → Fork
 # 2. Clone your fork
-git clone https://github.com/<your-username>/vabsgen.git
-cd vabsgen
+git clone https://github.com/<your-username>/vabs.git
+cd vabs
 
 cp .env.local.example .env.local   # fill in Supabase + Meta creds
 npm install
@@ -34,7 +34,7 @@ Full setup (Supabase migrations, WhatsApp Business API, deploy) lives in
 Pull in upstream bug fixes and security patches periodically:
 
 ```bash
-git remote add upstream https://github.com/ArnasDon/vabsgen.git  # once
+git remote add upstream https://github.com/ArnasDon/vabs.git  # once
 git fetch upstream
 git checkout main
 git merge upstream/main     # or: git rebase upstream/main
@@ -50,7 +50,7 @@ updating on your schedule is a valid alternative.
 
 If you find a bug in the upstream code — not one you introduced in your
 fork — please file it using the
-[bug report](https://github.com/ArnasDon/vabsgen/issues/new?template=bug_report.yml)
+[bug report](https://github.com/ArnasDon/vabs/issues/new?template=bug_report.yml)
 template. Including the commit SHA, the runtime (Hostinger / Vercel /
 local / other), and logs will get to a fix fastest.
 
@@ -96,7 +96,7 @@ closed — open the issue first to align.
 ## If you maintain a public fork
 
 - Rebrand. The "CRM Template for WhatsApp" name, favicon, and
-  `vabsgen.tech` URL belong to the upstream project; please swap them
+  `vabs.tech` URL belong to the upstream project; please swap them
   for your own before putting your deployment in front of users.
 - Keep the MIT [`LICENSE`](./LICENSE) file — that's how the template's
   permissions travel with the code. Attribution in a `README` section

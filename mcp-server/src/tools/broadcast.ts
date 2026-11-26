@@ -1,8 +1,8 @@
 // ============================================================
 // Broadcast tool — the highest-risk action.
 //
-// Registered only when BOTH vabsgen_ENABLE_WRITES and
-// vabsgen_ENABLE_BROADCASTS are set. A single call can message up to
+// Registered only when BOTH vabs_ENABLE_WRITES and
+// vabs_ENABLE_BROADCASTS are set. A single call can message up to
 // 1000 people, so on top of the env gate the tool requires an
 // explicit `confirm: true` argument — the model must consciously opt
 // in, and a client that echoes tool args gives the user a last look.
@@ -11,10 +11,10 @@
 
 import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { vabsgenClient } from '../client.js';
+import type { vabsClient } from '../client.js';
 import { errorResult, handle, jsonResult } from './shared.js';
 
-export function registerBroadcastTools(server: McpServer, client: vabsgenClient): void {
+export function registerBroadcastTools(server: McpServer, client: vabsClient): void {
   server.registerTool(
     'send_broadcast',
     {

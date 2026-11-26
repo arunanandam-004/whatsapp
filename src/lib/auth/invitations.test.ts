@@ -57,20 +57,20 @@ describe("hashInviteToken", () => {
 
 describe("inviteUrl", () => {
   it("joins path correctly with no trailing slash", () => {
-    expect(inviteUrl("abc", "https://vabsgen.example")).toBe(
-      "https://vabsgen.example/join/abc",
+    expect(inviteUrl("abc", "https://vabs.example")).toBe(
+      "https://vabs.example/join/abc",
     );
   });
 
   it("tolerates a trailing slash on baseUrl", () => {
-    expect(inviteUrl("abc", "https://vabsgen.example/")).toBe(
-      "https://vabsgen.example/join/abc",
+    expect(inviteUrl("abc", "https://vabs.example/")).toBe(
+      "https://vabs.example/join/abc",
     );
   });
 
   it("tolerates multiple trailing slashes", () => {
-    expect(inviteUrl("abc", "https://vabsgen.example///")).toBe(
-      "https://vabsgen.example/join/abc",
+    expect(inviteUrl("abc", "https://vabs.example///")).toBe(
+      "https://vabs.example/join/abc",
     );
   });
 

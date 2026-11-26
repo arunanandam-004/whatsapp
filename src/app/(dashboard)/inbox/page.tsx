@@ -26,7 +26,7 @@ import {
 
 // Remembers the agent's show/hide choice for the desktop contact panel
 // across reloads and sessions (device-scoped, like the theme prefs).
-const CONTACT_PANEL_STORAGE_KEY = "vabsgen:inbox:contact-panel-open";
+const CONTACT_PANEL_STORAGE_KEY = "vabs:inbox:contact-panel-open";
 
 // The width at which the contact panel fits beside the thread, matching the
 // `lg:` prefix on its wrapper below (Tailwind's `lg` is 64rem). Kept next to

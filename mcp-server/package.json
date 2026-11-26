@@ -1,20 +1,20 @@
 {
-  "name": "vabsgen-mcp",
+  "name": "vabs-mcp",
   "version": "0.1.1",
-  "mcpName": "io.github.ArnasDon/vabsgen-mcp",
-  "description": "Model Context Protocol (MCP) server for vabsgen — drive your self-hosted WhatsApp CRM from Claude, Cursor, and other MCP clients.",
+  "mcpName": "io.github.ArnasDon/vabs-mcp",
+  "description": "Model Context Protocol (MCP) server for vabs — drive your self-hosted WhatsApp CRM from Claude, Cursor, and other MCP clients.",
   "license": "MIT",
   "author": "Arnas Donauskas",
-  "homepage": "https://github.com/ArnasDon/vabsgen",
+  "homepage": "https://github.com/ArnasDon/vabs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArnasDon/vabsgen.git",
+    "url": "git+https://github.com/ArnasDon/vabs.git",
     "directory": "mcp-server"
   },
   "keywords": [
     "mcp",
     "model-context-protocol",
-    "vabsgen",
+    "vabs",
     "whatsapp",
     "crm",
     "claude",
@@ -25,7 +25,7 @@
     "node": ">=22.0.0"
   },
   "bin": {
-    "vabsgen-mcp": "./dist/index.js"
+    "vabs-mcp": "./dist/index.js"
   },
   "files": [
     "dist",

@@ -87,16 +87,16 @@ export default function ForgotPasswordPage() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <Card className="w-full max-w-md border-border bg-card">
         <CardHeader className="items-center text-center">
-          <div className="mb-3 flex h-12 items-center justify-center">
+          <div className="mb-3 flex h-14 items-center justify-center">
             <img
               src="/logo.png"
-              alt="vabsgen"
-              className="brand-logo-white h-9 w-auto object-contain"
+              alt="vabs"
+              className="brand-logo-white h-11 w-auto object-contain"
             />
             <img
               src="/logo-black.png"
-              alt="vabsgen"
-              className="brand-logo-black h-9 w-auto object-contain"
+              alt="vabs"
+              className="brand-logo-black h-11 w-auto object-contain"
             />
           </div>
           <CardTitle className="text-xl text-foreground">{t("title")}</CardTitle>

@@ -50,9 +50,9 @@ is included.
 docker build \
   --build-arg NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co \
   --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key \
-  -t vabsgen .
+  -t vabs .
 
-docker run -d --env-file .env.local -e PORT=3000 -p 3000:3000 vabsgen
+docker run -d --env-file .env.local -e PORT=3000 -p 3000:3000 vabs
 ```
 
 ## Notes
