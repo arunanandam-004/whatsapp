@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Shield } from "lucide-react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { TermsContent } from "@/components/TermsContent";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -9,45 +8,50 @@ export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
       {
-        title: "Terms and Conditions — Vabsgen",
+        title: "VABS",
       },
       {
         name: "description",
         content:
-          "Official Terms and Conditions governing your access and use of Vabsgen career development and AI platform services.",
+          "Terms governing hospitals' and clinics' use of the Vabsgen WhatsApp AI healthcare platform.",
       },
+      {
+        property: "og:title",
+        content: "Vabsgen — Terms & Conditions",
+      },
+      {
+        property: "og:description",
+        content:
+          "Terms governing hospitals' and clinics' use of the Vabsgen WhatsApp AI healthcare platform.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "icon", href: "/apple-touch-icon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "shortcut icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: "/favicon.ico" },
     ],
   }),
   component: TermsPage,
 });
 
 function TermsPage() {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, []);
+    navigate({ to: "/terms-and-conditions", replace: true });
+  }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen bg-black text-white selection:bg-[#2563EB] selection:text-white">
       <Navbar />
-
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-        {/* Back Link */}
-        <div className="mb-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-emerald-400 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Link>
-        </div>
-
-        {/* Content Box */}
-        <div className="p-6 sm:p-10 rounded-3xl bg-zinc-950/80 border border-white/10 shadow-2xl shadow-emerald-950/20 backdrop-blur-xl">
+        <div className="p-6 sm:p-10 rounded-3xl bg-zinc-950/80 border border-white/10 shadow-2xl backdrop-blur-xl">
           <TermsContent />
         </div>
       </main>
-
       <Footer />
     </div>
   );

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PrivacyContent } from "@/components/PrivacyContent";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -9,45 +8,50 @@ export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
       {
-        title: "Privacy Policy — Vabsgen",
+        title: "VABS",
       },
       {
         name: "description",
         content:
-          "Official Privacy Policy explaining data collection, protection, and your DPDP privacy rights at Vabsgen.",
+          "How Vabsgen collects, uses, protects and shares patient and hospital data on its WhatsApp healthcare AI platform, and your privacy rights.",
       },
+      {
+        property: "og:title",
+        content: "Vabsgen — Healthcare Privacy Policy",
+      },
+      {
+        property: "og:description",
+        content:
+          "How Vabsgen collects, uses, protects and shares patient and hospital data on its WhatsApp healthcare AI platform, and your privacy rights.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "icon", href: "/apple-touch-icon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "shortcut icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: "/favicon.ico" },
     ],
   }),
   component: PrivacyPage,
 });
 
 function PrivacyPage() {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, []);
+    navigate({ to: "/privacy-policy", replace: true });
+  }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen bg-black text-white selection:bg-[#2563EB] selection:text-white">
       <Navbar />
-
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-        {/* Back Link */}
-        <div className="mb-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-emerald-400 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Link>
-        </div>
-
-        {/* Content Box */}
-        <div className="p-6 sm:p-10 rounded-3xl bg-zinc-950/80 border border-white/10 shadow-2xl shadow-emerald-950/20 backdrop-blur-xl">
+        <div className="p-6 sm:p-10 rounded-3xl bg-zinc-950/80 border border-white/10 shadow-2xl backdrop-blur-xl">
           <PrivacyContent />
         </div>
       </main>
-
       <Footer />
     </div>
   );

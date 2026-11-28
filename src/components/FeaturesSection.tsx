@@ -1,117 +1,154 @@
 import {
-  Brain,
-  Zap,
+  HeartPulse,
   CalendarCheck,
-  Languages,
-  ShieldCheck,
+  AlertTriangle,
+  Brain,
+  FileText,
+  Send,
+  Lock,
   UserCheck,
-  BarChart3,
-  Layers,
-  ArrowUpRight,
+  Sparkles,
 } from "lucide-react";
 
 const FEATURES = [
   {
-    icon: Brain,
-    title: "Deep Business Reasoning",
+    icon: HeartPulse,
+    tag: "Follow-up",
+    title: "Healthcare Follow-up",
     description:
-      "Trained on your PDFs, website, CRM records, and product docs. Understands context, nuance, and intent rather than just matching rigid keywords.",
-    tag: "Autonomous AI",
-    color: "from-emerald-500/20 to-teal-500/10",
-  },
-  {
-    icon: Zap,
-    title: "Sub-Second First Response (<800ms)",
-    description:
-      "Replies at lighting speed 24/7/365. Eliminates lead drop-off and catches high-intent prospects when their purchase impulse is at its peak.",
-    tag: "Lightning Speed",
-    color: "from-amber-500/20 to-emerald-500/10",
+      "Automatically checks in after visits, procedures and discharge, records the patient's response and alerts your team when something needs attention.",
+    color: "from-[#2563EB]/20 to-[#14B8A6]/10",
+    isAccent: false,
   },
   {
     icon: CalendarCheck,
-    title: "Calendar Booking & Payments",
+    tag: "Booking",
+    title: "AI Appointment Booking",
     description:
-      "Offers available meeting slots in real-time, syncs directly with Google Calendar & Calendly, and generates secure Stripe/PayPal payment links.",
-    tag: "Conversion Engine",
-    color: "from-sky-500/20 to-emerald-500/10",
+      "Offers real-time doctor slots, books, reschedules and cancels on WhatsApp and sends timely reminders to reduce no-shows.",
+    color: "from-[#14B8A6]/20 to-[#2563EB]/10",
+    isAccent: false,
   },
   {
-    icon: Languages,
-    title: "Multi-Lingual in 95+ Languages",
+    icon: AlertTriangle,
+    tag: "Safety",
+    title: "Emergency Escalation",
     description:
-      "Detects customer dialect automatically and responds with native colloquial fluency, including Spanish, Arabic, Hindi, Portuguese, and Mandarin.",
-    tag: "Global Reach",
-    color: "from-purple-500/20 to-emerald-500/10",
+      "Detects emergency signals in a message and instantly alerts the on-duty doctor or team with a summary, instead of letting the AI handle it alone.",
+    color: "from-[#F97316]/20 to-[#2563EB]/10",
+    isAccent: true,
   },
   {
-    icon: ShieldCheck,
-    title: "Meta Cloud API Compliant",
+    icon: Brain,
+    tag: "Automation",
+    title: "Automatic Query Resolution",
     description:
-      "Runs on official Meta WhatsApp Business Platform infrastructure. Zero risk of phone number bans, verified green checkmark eligible.",
-    tag: "Enterprise Safe",
-    color: "from-emerald-500/20 to-green-500/10",
+      "Answers routine questions about timings, departments, doctors, directions, report status and visit preparation instantly, 24/7.",
+    color: "from-[#2563EB]/20 to-[#14B8A6]/10",
+    isAccent: false,
+  },
+  {
+    icon: FileText,
+    tag: "Prescriptions",
+    title: "Prescription Management",
+    description:
+      "Digital prescriptions are created and approved by the doctor, stored in the patient record and used for refill requests that always return to the doctor.",
+    color: "from-[#2563EB]/20 to-teal-500/10",
+    isAccent: false,
+  },
+  {
+    icon: Send,
+    tag: "WhatsApp",
+    title: "WhatsApp Prescription Delivery",
+    description:
+      "Sends the doctor-approved prescription to the patient on WhatsApp as a signed PDF, with medicine reminders as written by the doctor.",
+    color: "from-[#14B8A6]/20 to-[#2563EB]/10",
+    isAccent: false,
+  },
+  {
+    icon: Lock,
+    tag: "Security",
+    title: "Data Security & Control",
+    description:
+      "Encrypted data, role-based access and full audit trail. Your hospital decides who can see what, and what the AI may do.",
+    color: "from-[#2563EB]/20 to-[#14B8A6]/10",
+    isAccent: false,
   },
   {
     icon: UserCheck,
-    title: "Smart Human-in-the-Loop Handoff",
+    tag: "Memory",
+    title: "Patient Memory",
     description:
-      "Detects frustrated sentiments or high-value VIP negotiations and smoothly alerts human sales agents with an AI-generated briefing summary.",
-    tag: "Hybrid Workflow",
-    color: "from-rose-500/20 to-emerald-500/10",
+      "Remembers past visits, preferred doctor and slot timing, and language, so every conversation feels continuous without patients repeating themselves.",
+    color: "from-[#14B8A6]/20 to-[#2563EB]/10",
+    isAccent: false,
   },
 ];
 
 export function FeaturesSection() {
   return (
     <section id="features-section" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950">
+      <span id="features" className="absolute -top-24" aria-hidden="true" />
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Layers className="w-3.5 h-3.5" />
-            <span>Built For Maximum Revenue</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2563EB]/15 border border-[#2563EB]/30 text-[#14B8A6] text-xs font-semibold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Built For Hospitals</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-            Engineered To Outperform Traditional Chatbots.
+            A Safer, Smarter Way To Handle Every Patient Message.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-400">
-            Unlike scripted keyword bots that frustrate users, our agent uses frontier LLMs to listen, reason, and take action like your top-performing sales consultant.
+          <p className="mt-4 text-base sm:text-lg text-slate-300">
+            Not a scripted keyword bot. Our agent understands patient questions, follows your
+            hospital&apos;s rules and hands over to your team whenever a human is needed.
           </p>
         </div>
 
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Feature Cards Grid (8 Cards: 4x2 desktop, 1 col mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURES.map((feature, idx) => {
             const Icon = feature.icon;
             return (
               <div
                 key={idx}
-                className="group relative p-7 rounded-3xl bg-zinc-900/60 border border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-950/40 flex flex-col justify-between"
+                className="group relative p-6 rounded-3xl bg-[#0B2D5B]/40 border border-white/10 hover:border-[#14B8A6]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0B2D5B]/60 flex flex-col justify-between"
               >
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
                 />
 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-400 group-hover:text-zinc-950 transition-colors duration-300 shadow-lg">
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className={`w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-colors duration-300 shadow-lg ${
+                        feature.isAccent
+                          ? "text-[#F97316] group-hover:bg-[#F97316] group-hover:text-white"
+                          : "text-[#14B8A6] group-hover:bg-[#14B8A6] group-hover:text-white"
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/5 text-zinc-300 border border-white/5">
+                    <span
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-semibold border ${
+                        feature.isAccent
+                          ? "bg-[#F97316]/10 text-[#F97316] border-[#F97316]/20"
+                          : "bg-white/5 text-slate-300 border-white/5"
+                      }`}
+                    >
                       {feature.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-display font-bold text-white mb-2.5 flex items-center gap-1.5 group-hover:text-emerald-300 transition-colors">
+                  <h3
+                    className={`text-lg font-display font-bold text-white mb-2 transition-colors ${
+                      feature.isAccent ? "group-hover:text-[#F97316]" : "group-hover:text-[#14B8A6]"
+                    }`}
+                  >
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {feature.description}
                   </p>
-                </div>
-
-                <div className="relative z-10 mt-6 pt-4 border-t border-white/5 flex items-center text-xs font-semibold text-emerald-400 opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                  <span>Learn more</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
                 </div>
               </div>
             );

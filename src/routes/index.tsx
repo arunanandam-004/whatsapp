@@ -5,10 +5,8 @@ import { Navbar } from "@/components/Navbar";
 import { WhatsAppAutomationSection } from "@/components/WhatsAppAutomationSection";
 import { WhatsAppSimulatorSection } from "@/components/WhatsAppSimulatorSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
+import { DataSecurityBand } from "@/components/DataSecurityBand";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
-import { MetricsSection } from "@/components/MetricsSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { PricingSection } from "@/components/PricingSection";
 import { FaqSection } from "@/components/FaqSection";
 import { CtaSection } from "@/components/CtaSection";
 import { Footer } from "@/components/Footer";
@@ -18,33 +16,30 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Vabsgen WhatsApp Agent — Autonomous WhatsApp AI for Growing Businesses",
+        title: "VABS",
       },
       {
         name: "description",
         content:
-          "Deploy Vabsgen's intelligent 24/7 WhatsApp AI agent that converses, qualifies leads, schedules calendar appointments, and closes revenue on autopilot.",
+          "Vabsgen is a 24/7 WhatsApp AI agent for hospitals and clinics: appointment booking, patient follow-up, emergency escalation, WhatsApp prescriptions and patient memory, with secure data and staff control.",
       },
       {
         property: "og:title",
-        content:
-          "Vabsgen WhatsApp Agent — Autonomous WhatsApp AI for Growing Businesses",
+        content: "VABS",
       },
       {
         property: "og:description",
         content:
-          "Deploy Vabsgen's intelligent 24/7 WhatsApp AI agent that converses, qualifies leads, schedules calendar appointments, and closes revenue on autopilot.",
+          "Vabsgen is a 24/7 WhatsApp AI agent for hospitals and clinics: appointment booking, patient follow-up, emergency escalation, WhatsApp prescriptions and patient memory, with secure data and staff control.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "512x512" },
-      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
-      { rel: "shortcut icon", href: "/favicon.ico" },
+      { rel: "icon", href: "/apple-touch-icon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "shortcut icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: "/favicon.ico" },
       {
         rel: "preload",
         as: "image",
@@ -77,38 +72,32 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen bg-[#071D3B] text-white selection:bg-[#2563EB] selection:text-white">
       {/* Navigation */}
       <Navbar />
 
-      {/* Optimized Pinned Scroll-Controlled Storyboard Hero Section */}
+      {/* Pinned Scroll-Controlled Storyboard Hero Section */}
       <WhatsAppAutomationSection spriteSrc="/whatsapp_robot_celebration_storyboard.jpg" />
 
-      {/* Interactive Hands-On WhatsApp Simulator */}
+      {/* Interactive Hands-On WhatsApp Healthcare Simulator */}
       <WhatsAppSimulatorSection />
 
-      {/* Core AI Capabilities */}
+      {/* Core Healthcare AI Capabilities (8 Features) */}
       <FeaturesSection />
 
-      {/* 3-Step Setup Process */}
+      {/* Data Security & Privacy Control Band for Hospitals */}
+      <DataSecurityBand />
+
+      {/* Structured Hospital Onboarding Process */}
       <HowItWorksSection />
 
-      {/* Business Impact & ROI Statistics */}
-      <MetricsSection />
-
-      {/* Social Proof & Case Studies */}
-      <TestimonialsSection />
-
-      {/* Transparent Pricing Table */}
-      <PricingSection />
-
-      {/* FAQs */}
+      {/* Hospital Buyer FAQs */}
       <FaqSection />
 
-      {/* Final Conversion CTA */}
+      {/* Final CTA: Book a Demo */}
       <CtaSection />
 
-      {/* Comprehensive Enterprise Footer */}
+      {/* Hospital Compliance Footer */}
       <Footer />
 
       {/* Sticky Floating WhatsApp Widget */}

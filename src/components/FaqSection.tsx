@@ -3,28 +3,32 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const FAQS = [
   {
-    q: "Is there any risk of our WhatsApp number getting banned?",
-    a: "None whatsoever. Unlike unofficial scraping bots or modified apps, Vabsgen operates exclusively on Meta's official WhatsApp Business Cloud API. We follow Meta's strict rate limits and compliance policies, and your account is 100% safeguarded.",
+    q: "Is our patients' data safe?",
+    a: "Patient data is encrypted, access is role-based and every action is logged. Your hospital controls who can see what. We align with India's DPDP Act, 2023.",
   },
   {
-    q: "Can our human sales reps still take over conversations?",
-    a: "Yes! At any time, you or your team can view the live chat in your existing WhatsApp Business app or CRM. Typing a message instantly pauses the AI for that contact, or you can let the AI auto-summarize and alert you when high-ticket leads ask to speak with a human.",
+    q: "Does the AI give medical advice or diagnose?",
+    a: "No. The AI handles administrative and communication tasks: booking, reminders, information, follow-ups. Clinical decisions stay with your doctors, and symptom-related messages are escalated to your team.",
   },
   {
-    q: "How does the AI learn about our company and prevent wrong answers?",
-    a: "You provide your website URL, product catalogs, service menus, and FAQ documents. Our AI uses advanced Retrieval-Augmented Generation (RAG) with strict enterprise guardrails. If a customer asks a question outside your company's scope, the agent politely clarifies or escalates instead of hallucinating.",
+    q: "What happens in an emergency?",
+    a: "If a message shows emergency signals, the AI immediately alerts your on-duty team with a summary and tells the patient to call emergency services or come to the hospital. You define the rules.",
   },
   {
-    q: "Does it support voice notes and languages other than English?",
-    a: "Yes! The AI listens to voice notes using Whisper speech-to-text, comprehends context, and replies back via text or realistic voice notes in 95+ languages including Spanish, Portuguese, Hindi, French, German, and Arabic.",
+    q: "Can our staff take over a conversation?",
+    a: "Yes. Staff can step into any chat at any time, which pauses the AI for that patient. The AI can also hand over with a short summary.",
   },
   {
-    q: "How fast can we launch our WhatsApp AI agent?",
-    a: "Most businesses go live in under 15 minutes. Connect your WhatsApp number via QR code or Meta Cloud API, drop in your website URL or PDF docs, test in the preview simulator, and click Deploy.",
+    q: "How are prescriptions sent?",
+    a: "Only after the doctor approves. The prescription is sent as a signed PDF on WhatsApp. The AI never creates or changes a prescription and refill requests always go to the doctor.",
   },
   {
-    q: "Can the AI book appointments in our calendar and collect payments?",
-    a: "Yes. Vabsgen natively integrates with Google Calendar, Calendly, Acuity, Stripe, PayPal, and Razorpay. The agent checks real-time slot availability, books the appointment, and sends direct payment checkout links.",
+    q: "Does it work with our hospital software and other languages?",
+    a: "We connect to your doctor schedules and hospital system (HMS/EMR) during onboarding [confirm which systems are supported]. Language support: [confirm languages, e.g., English, Hindi and regional languages].",
+  },
+  {
+    q: "How long does setup take?",
+    a: "It depends on your size and systems. We start with a pilot department and expand once your team is comfortable.",
   },
 ];
 
@@ -32,18 +36,22 @@ export function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq-section" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 border-t border-white/5">
+    <section
+      id="faq-section"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 border-t border-white/5"
+    >
+      <span id="faq" className="absolute -top-24" aria-hidden="true" />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2563EB]/15 border border-[#2563EB]/30 text-[#14B8A6] text-xs font-semibold uppercase tracking-wider mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Got Questions?</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
             Frequently Asked Questions.
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-zinc-400">
-            Everything you need to know about autonomous WhatsApp AI agents.
+          <p className="mt-4 text-sm sm:text-base text-slate-300">
+            Clear answers about healthcare WhatsApp AI, data privacy, and hospital system workflows.
           </p>
         </div>
 
@@ -53,24 +61,22 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-zinc-900/40 border border-white/10 overflow-hidden transition-colors"
+                className="rounded-2xl bg-[#0B2D5B]/40 border border-white/10 hover:border-[#14B8A6]/30 overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-semibold text-white">
-                    {faq.q}
-                  </span>
+                  <span className="text-base sm:text-lg font-semibold text-white">{faq.q}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-emerald-400 transition-transform duration-200 flex-shrink-0 ${
+                    className={`w-5 h-5 text-[#14B8A6] transition-transform duration-200 flex-shrink-0 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-zinc-400 leading-relaxed border-t border-white/5 pt-4 animate-in fade-in duration-200">
+                  <div className="px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4 animate-in fade-in duration-200">
                     {faq.a}
                   </div>
                 )}

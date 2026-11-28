@@ -6,6 +6,8 @@ export function Footer() {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = `/#${id}`;
     }
   };
 
@@ -17,19 +19,19 @@ export function Footer() {
           <div className="space-y-4">
             <Link to="/" className="inline-block focus:outline-none">
               <img
-                src="/vabsgen-logo.png"
+                src="/vabsgen-logo-white.png"
                 alt="Vabsgen"
-                className="h-10 sm:h-12 w-auto object-contain"
+                className="h-12 sm:h-16 w-auto object-contain transition-transform hover:scale-105"
               />
             </Link>
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
-              Autonomous WhatsApp AI Agents that converse, qualify leads, schedule calendar
-              appointments, and close revenue 24/7.
+              Autonomous WhatsApp AI agents for hospitals and clinics: appointments, follow-ups,
+              emergency escalation and prescriptions, with your team in control.
             </p>
             <div className="pt-1">
               <a
                 href="mailto:official@vabsgen.com"
-                className="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-xs text-[#14B8A6] hover:text-[#2DD4BF] transition-colors font-medium"
               >
                 <Mail className="w-3.5 h-3.5" />
                 <span>official@vabsgen.com</span>
@@ -37,110 +39,101 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Product & Navigation */}
+          {/* Product Column */}
           <div>
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px] mb-4">
-              Product & Features
+              Product
             </h4>
             <ul className="space-y-2.5">
               <li>
                 <button
-                  onClick={() => scrollTo("simulator-section")}
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer"
+                  onClick={() => scrollTo("simulator")}
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors cursor-pointer"
                 >
-                  Interactive Live Simulator
+                  Live Simulator
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("features-section")}
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer"
+                  onClick={() => scrollTo("features")}
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors cursor-pointer"
                 >
-                  AI Lead Qualification & Features
+                  Features
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("metrics-section")}
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer"
+                  onClick={() => scrollTo("security")}
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors cursor-pointer"
                 >
-                  ROI & Impact Metrics
+                  Security
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("pricing-section")}
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer"
+                  onClick={() => scrollTo("faq")}
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors cursor-pointer"
                 >
-                  Pricing & Plans
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollTo("faq-section")}
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer"
-                >
-                  Frequently Asked Questions
+                  FAQ
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Legal & Policies */}
+          {/* Legal Column */}
           <div>
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px] mb-4">
-              Legal & Policies
+              Legal
             </h4>
             <ul className="space-y-2.5">
               <li>
                 <Link
-                  to="/privacy"
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors inline-block"
+                  to="/privacy-policy"
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors inline-block"
                 >
                   Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/terms"
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors inline-block"
+                  to="/terms-and-conditions"
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors inline-block"
                 >
                   Terms and Conditions
                 </Link>
               </li>
               <li>
                 <a
-                  href="mailto:official@vabsgen.com?subject=Legal%20Inquiry"
-                  className="text-left text-zinc-400 hover:text-emerald-400 transition-colors inline-block"
+                  href="mailto:official@vabsgen.com?subject=Grievance%20Contact"
+                  className="text-left text-slate-300 hover:text-[#14B8A6] transition-colors inline-block"
                 >
-                  Legal & Grievance Contact
+                  Grievance Contact
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* Disclaimer Line */}
+        <div className="py-4 border-t border-white/5 text-center text-[#64748B] text-[11px]">
+          <p>Vabsgen is a communication tool and does not provide medical advice.</p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <p>© {new Date().getFullYear()} Vabsgen. All rights reserved.</p>
           <div className="flex items-center gap-3">
-            <Link
-              to="/privacy"
-              className="hover:text-emerald-400 transition-colors"
-            >
+            <Link to="/privacy-policy" className="hover:text-[#14B8A6] transition-colors">
               Privacy Policy
             </Link>
             <span>•</span>
-            <Link
-              to="/terms"
-              className="hover:text-emerald-400 transition-colors"
-            >
+            <Link to="/terms-and-conditions" className="hover:text-[#14B8A6] transition-colors">
               Terms and Conditions
             </Link>
             <span>•</span>
             <a
               href="mailto:official@vabsgen.com"
-              className="hover:text-emerald-400 transition-colors"
+              className="hover:text-[#14B8A6] transition-colors"
             >
               official@vabsgen.com
             </a>

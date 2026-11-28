@@ -166,6 +166,7 @@ Do not create a normal slideshow, carousel, or autoplay video. I specifically ne
 The design must look professional, modern, visually attractive, and fully responsive on desktop, tablet, and mobile. Prioritize smooth animation, accurate sprite-sheet frame positioning, and excellent mobile scrolling performance.
 
 ## Vabsgen WhatsApp AI Agent
+
 Autonomous WhatsApp AI Agents that converse, qualify leads, schedule calendar appointments, and close revenue 24/7.
 
 ## Development

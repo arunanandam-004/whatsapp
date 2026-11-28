@@ -4,10 +4,7 @@ type ErrorOptions = {
   timestamp?: number;
 };
 
-export function reportRuntimeError(
-  error: unknown,
-  context: Record<string, unknown> = {}
-) {
+export function reportRuntimeError(error: unknown, context: Record<string, unknown> = {}) {
   if (import.meta.env.DEV) {
     console.error("[Runtime Error]", error, context);
   }
